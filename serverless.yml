@@ -1,0 +1,19 @@
+service: aws-sls-node-template
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: DEV
+  region: ap-northeast-1
+
+custom:
+  system: "TEMPLATE"
+  stage: DEV
+
+functions:
+  hello:
+    handler: src/index.handler
+    events:
+      - http:
+          method: GET
+          path: hello
